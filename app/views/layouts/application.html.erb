@@ -3,6 +3,7 @@
   <head>
     <title>RailsWatchList</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://kit.fontawesome.com/d29be27bb4.js" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +12,18 @@
   </head>
 
   <body>
-    <%= yield %>
+
+
+  <div class="container">
+  <div class="row round-border white-bg app-container">
+    <div class="col border-left-grey">
+      <%= render 'shared/navbar' %>
+    </div>
+    <div class="col-10">
+
+      <%= yield %>
+    </div>
+  </div>
+
   </body>
 </html>

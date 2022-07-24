@@ -1,0 +1,14 @@
+<div>
+<h1>All lists:</h1>
+  <div class="cards">
+    <% @lists.each do |list| %>
+        <% list.movies.each do |movie| %>
+          <%= link_to list_path(list) do %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= movie.poster_url %>')">
+              <%= list.name %>
+            </div>
+          <% end %>
+        <% end %>
+    <% end %>
+  </div>
+</div>
