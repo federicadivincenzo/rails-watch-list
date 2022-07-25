@@ -3,17 +3,18 @@
   <%= link_to 'Add bookmark', new_list_bookmark_path(@list) %>
 </div>
 <div class="container-card-list">
-  <% @list.bookmarks.each do |bookmark| %>
+  <% @list.movies.each do |movie| %>
+  <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
     <div class='movie-card'>
-      <img src=<%= bookmark.movie.poster_url %> alt="">
-      <p><i class="fa-solid fa-star"></i> <%= bookmark.movie.rating %></p>
+      <img src=<%= movie.poster_url %> alt="">
+      <p><i class="fa-solid fa-star"></i> <%= movie.rating %></p>
       <div class="card-text">
-        <h1><%= bookmark.movie.title %></h1>
-        <p><%= bookmark.movie.overview %></p>
+        <h1><%= movie.title %></h1>
+        <p><%= movie.overview %></p>
       </div>
       <div class="comment-section">
         <p>💬 <%= bookmark.comment %></p>
-        <p><i class="fa-solid fa-trash-can"></i> <%= link_to 'Delete', bookmark_path(params[:id]), method: :delete, data: { confirm: "Are you sure?" }  %></p>
+        <p><i class="fa-solid fa-trash-can"></i> <%= link_to 'Delete', bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" }  %></p>
       </div>
     </div>
   <% end %>
