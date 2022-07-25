@@ -4,7 +4,7 @@
     <% @lists.each do |list| %>
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= list.movies.first.poster_url %>')">
               <%= link_to list_path(list) do %>
-              <%= list.name %>
+              <h3><%= list.name %></h3>
               <%= link_to list_path(list), method: :delete, data: { confirm: "Are you sure?" } do  %>
               <div class="delete">
               <p><i class="fa-solid fa-circle-minus"></i></p>

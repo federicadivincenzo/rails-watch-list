@@ -55,8 +55,17 @@
     top: .2em;
     right: .6em;
     color: #e4e4e4b6;
+    &:hover {
+      color: #ffffffb6;
+    }
   }
   a {
     display: inline;
+    color: #e4e4e4;
+    text-decoration: none;
+    &:hover {
+      color: #ffffff;
+    }
   }
+
 }
