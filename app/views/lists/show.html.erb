@@ -1,5 +1,7 @@
-<h1>Movies <%= @list.name %> </h1>
-
+<div class="header d-flex justify-content-between align-items-center">
+  <h1>List <%= @list.name %> </h1>
+  <%= link_to 'Add bookmark', new_list_bookmark_path(@list) %>
+</div>
 <div class="container-card-list">
   <% @list.bookmarks.each do |bookmark| %>
     <div class='movie-card'>
@@ -11,11 +13,8 @@
       </div>
       <div class="comment-section">
         <p>💬 <%= bookmark.comment %></p>
+        <p><i class="fa-solid fa-trash-can"></i> <%= link_to 'Delete', bookmark_path(params[:id]), method: :delete, data: { confirm: "Are you sure?" }  %></p>
       </div>
     </div>
   <% end %>
 </div>
-
-
-
-<%= link_to 'Add bookmark', new_list_bookmark_path(@list) %>
