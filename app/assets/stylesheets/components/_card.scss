@@ -34,6 +34,7 @@
 }
 
 .card-category {
+  position: relative;
   background-size: cover;
   background-position: center;
   height: 180px;
@@ -48,5 +49,14 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   .comment-section {
     justify-self: flex-end;
+  }
+  .delete {
+    position: absolute;
+    top: .2em;
+    right: .6em;
+    color: #e4e4e4b6;
+  }
+  a {
+    display: inline;
   }
 }
