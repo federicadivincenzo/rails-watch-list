@@ -1,18 +1,15 @@
 <div>
 <h1>All lists</h1>
   <div class="cards">
-
     <% @lists.each do |list| %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path list.photo.key || "" %>)">
-              <%= link_to list_path(list) do %>
-              <h3><%= list.name %></h3>
-              <%= link_to list_path(list), method: :delete, data: { confirm: "Are you sure?" } do  %>
-              <div class="delete">
-              <p><i class="fa-solid fa-circle-minus"></i></p>
-              </div>
-              <% end %>
-            </div>
-          <% end %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path list.photo.key || "" %>)">
+        <h3><%= link_to list.name, list_path(list) %></h3>
+        <%= link_to list_path(list), method: :delete, data: { confirm: "Are you sure?" } do  %>
+          <div class="delete">
+            <p><i class="fa-solid fa-circle-minus"></i></p>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
