@@ -1,3 +1,4 @@
+<div>
 <div class="header d-flex justify-content-between align-items-center">
   <h2>List <strong><%= @list.name %></strong> </h2>
   <%= link_to 'Add bookmark', new_list_bookmark_path(@list) %>
@@ -18,4 +19,34 @@
       </div>
     </div>
   <% end %>
+</div>
+<div class="review-container">
+  <div class="row">
+    <div class="col-6">
+    <h2>Ratings</h2>
+      <% @list.reviews.each do |review| %>
+        <p><%= review.rating %></p>
+        <p><%= review.comment %></p>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <h2>Add a review:</h2>
+      <select id="example" data-controller="rating" data-rating-action="load@window->rating#connect">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <%= simple_form_for [@list, @review] do |f|%>
+        <%= f.input :rating %>
+        <%= f.input :comment %>
+        <%= f.submit "Add review", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+
 </div>
